@@ -1,41 +1,42 @@
 """Write a script that takes a list of 1000 random numbers and: removes duplicates (set), sorts them (list), groups them into ranges 0-10, 11-20, etc. (dict), finds the most common range (max with key). Use type hints on every function"""
 
-import random
+import random 
 
-def generate_random_numbers(n: int=1000) -> list[int]:
-    """Generate a list of n random numbers between 0 and 100."""
-    return [random.randint(0, 100) for _ in range(n)]
+def generate_numbers(n: int = 1000) -> list :
+    return [random.randint(0,100) for _ in range(n)]
 
-def remove_duplicates(numbers: list[int]) -> set[int]:
-    """Remove duplicates from the list of numbers."""
-    return set(numbers)
+def rmv_duplicates(li: list[n])-> set:
+    return set(li)
 
-def sort_numbers(numbers: list[int]) -> list[int]:
-    """Sort the list of numbers."""
-    return sorted(numbers)
+def sorted_list (s : set)-> list:
+    return sorted(s)
 
-def group_into_ranges(numbers: list[int], range_size: int = 10) -> dict[int, list[int]]:
-    """Group numbers into ranges."""
-    ranges = {}
-    for num in numbers:
-        range_key = num // range_size
-        if range_key not in ranges:
-            ranges[range_key] = []
-        ranges[range_key].append(num)
+def range_group(li: list, rang: int = 10) -> dict:
+    ranges={}
+    for i in range(0, 101, rang):
+        ranges[f"{i}-{i+rang-1}"] = [x for x in li if i <= x <= i+rang-1]
     return ranges
 
-def find_most_common_range(ranges: dict[int, list[int]]) -> int:
-    """Find the most common range."""
+def most_common_range(ranges: dict) -> str:
     return max(ranges, key=lambda k: len(ranges[k]))
 
-generated_numbers = generate_random_numbers()
-unique_numbers = remove_duplicates(generated_numbers)
-sorted_numbers = sort_numbers(list(unique_numbers))
-grouped_ranges = group_into_ranges(sorted_numbers)
-most_common_range = find_most_common_range(grouped_ranges)
-
-print("Generated Numbers:", generated_numbers)
-print("Unique Numbers:", unique_numbers)
-print("Sorted Numbers:", sorted_numbers)
-print("Grouped Ranges:", grouped_ranges)
-print("Most Common Range:", most_common_range, "with numbers:", grouped_ranges[most_common_range])
+#_________________________________________________________
+generate_num = generate_numbers(200)
+unique_elem = rmv_duplicates(generate_num)
+sorted_list=sorted_list(unique_elem)
+range_dict=range_group(sorted_list)
+most_common=most_common_range(range_dict)
+#_________________________________________________________
+print(f"*"*50)
+print(f"{generate_num}")
+print(f"*"*50)
+print (len(generate_num))
+print (generate_num.count(28))
+print(f"*"*50)
+print (f"{unique_elem}",type(unique_elem))
+print(f"*"*50)
+print ("Sorted List ")
+print (f"{sorted_list}",type(sorted_list))
+print(f"*"*50)
+print(f"Range Groups: {range_dict}")
+print(f"Most Common Range: {most_common}")
