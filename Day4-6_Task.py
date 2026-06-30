@@ -16,13 +16,13 @@ def read_csv(filename):
             row['salary'] = int(row['salary'])
             rows.append(row)
     
-    print(f"✅ {len(rows)} rows loaded successfully!")
+    print(f"{len(rows)} rows loaded successfully!")
     return rows
 
 def filter_by_age(rows, min_age=25):
     """Filter rows where age > min_age"""
     filtered = [row for row in rows if row['age'] > min_age]
-    print(f"✅ After filter (age > {min_age}): {len(filtered)} rows")
+    print(f"After filter (age > {min_age}): {len(filtered)} rows")
     return filtered
 
 def group_by_city(rows):
@@ -30,7 +30,7 @@ def group_by_city(rows):
     grouped = defaultdict(list)
     for row in rows:
         grouped[row['city']].append(row)
-    print(f"✅ Grouped into {len(grouped)} cities")
+    print(f" Grouped into {len(grouped)} cities")
     return dict(grouped)
 
 def calculate_average_salary(grouped_data):
@@ -53,7 +53,7 @@ def write_results(sorted_cities, grouped_data, filename='results.csv'):
         writer.writerow(['City', 'Average Salary', 'Total Employees'])
         for city, avg_salary in sorted_cities:
             writer.writerow([city, round(avg_salary, 2), len(grouped_data[city])])
-    print(f"✅ Results saved to '{filename}'")
+    print(f" Results saved to '{filename}'")
 
 def print_summary(grouped_data, averages, sorted_cities):
     """Print summary of results"""
