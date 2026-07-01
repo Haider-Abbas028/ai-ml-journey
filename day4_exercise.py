@@ -95,7 +95,7 @@ train_model(data)  # Default values use karega
 def trainingFunction(data,*args,**kwargs):
     print(f"applying function on {len(data)} length sample")
     for i , j in enumerate(args, 1):
-        print(f"Layer:{1}, Nuerons:{j}")
+        print(f"Layer:{i}, Nuerons:{j}")
     for parameter , value in kwargs.items():
         print(f"{parameter}: {value}")
 
