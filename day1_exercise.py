@@ -40,6 +40,13 @@ print(f"Roll Number: {roll_Number}")
 print(f"Age: {age}")
 print(f"CGPA: {cgpa}")
 print(f"Single: {single}\n")
+# Complete Comparison Table:
+# Style        | Example       | Use For                            | Python Standard
+# -----------------------------------------------------------------------------
+# snake_case   | my_variable   | Variables, functions, methods      | ✅ Recommended 
+# PascalCase   | MyClass       | Classes                            | ✅ Recommended
+# camelCase    | myVariable    | Variables (in other languages)     | ❌ Not Recommended
+# UPPER_CASE   | MAX_VALUE     | Constants                          | ✅ Recommended
 
 # ============================================
 # 4. QUICK CHEAT SHEET (Comments)
