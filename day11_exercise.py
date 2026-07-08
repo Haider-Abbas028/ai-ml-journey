@@ -60,3 +60,13 @@ class D(B, C):
 
 d = D()
 d.show() #it has to print B because of MRO (Method Resolution Order) which is D -> B -> C -> A
+
+
+# Dunder (magic) methods — make your classes behave like built-in types:
+# __len__ → len(dataset) returns number of samples
+# __getitem__ → dataset[0] returns first sample
+# __repr__ → print(model) shows useful info
+# __call__ → model(input) runs the forward pass
+# PyTorch Dataset class requires you to implement __len__ and __getitem__.
+
+"Will implmement dunder methods in the next exercise."
